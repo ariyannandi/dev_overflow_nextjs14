@@ -9,8 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-<<<<<<< Updated upstream
-=======
     "@clerk/nextjs": "^5.1.6",
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-dialog": "^1.1.1",
@@ -21,7 +19,6 @@
     "@tinymce/tinymce-react": "^5.1.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
->>>>>>> Stashed changes
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-tailwindcss": "^3.17.4",
