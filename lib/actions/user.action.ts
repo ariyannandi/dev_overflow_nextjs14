@@ -4,6 +4,7 @@ import { connectToDB } from "../mongoose";
 import User from "@/models/user.model";
 import { CreateUserParams, DeleteUserParams, UpdateUserParams } from "./shared";
 import { revalidatePath } from "next/cache";
+// eslint-disable-next-line no-unused-vars
 import Question from "@/models/question.model";
 
 export async function getUserById(params: any) {
@@ -61,25 +62,22 @@ export async function deleteUser(params: DeleteUserParams) {
       throw new Error("User not found");
     }
 
-    // delete user from database
+    // Delete user from database
     // and questions, answers, comments, etc.
 
     // get user question ids
-    // const userQuestionIds = await Question.find({ author: user._id }).distinct(
-    //   "_id"
-    // );
+    // const userQuestionIds = await Question.find({ author: user._id}).distinct('_id');
 
     // delete user questions
-
     // await Question.deleteMany({ author: user._id });
 
-    // TODO: delete user answers, comments, etc
+    // TODO: delete user answers, comments, etc.
 
-    const deletedUser = await User.findByIdAndDelete(user._id);
+    // const deletedUser = await User.findByIdAndDelete(user._id);
 
-    return deletedUser;
+    // return deletedUser;
   } catch (error) {
-    console.error(error);
+    console.log(error);
     throw error;
   }
 }
