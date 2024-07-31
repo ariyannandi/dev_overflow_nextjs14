@@ -7,7 +7,12 @@ import Tag from "@/models/tags.model";
 import User from "@/models/user.model";
 import { revalidatePath } from "next/cache";
 
-export async function getQuestions({ params }: GetQuestionsParams) {
+export async function getQuestions({
+  page,
+  pageSize,
+  searchQuery,
+  filter,
+}: GetQuestionsParams) {
   try {
     connectToDB();
 
