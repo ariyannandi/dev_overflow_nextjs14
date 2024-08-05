@@ -43,6 +43,8 @@ export default function RootLayout({
               footerActionLink: "primary-text-gradient hover:text-primary-500",
             },
           }}
+          afterSignInUrl="/"
+          afterSignUpUrl="/"
         >
           <ThemeProvider>{children}</ThemeProvider>
         </ClerkProvider>
