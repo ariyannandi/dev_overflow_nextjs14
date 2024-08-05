@@ -53,8 +53,6 @@ export async function POST(req: Request) {
     });
   }
 
-  // Do something with the payload
-  // For this guide, you simply log the payload to the console
   const eventType = evt.type;
 
   if (eventType === "user.created") {
@@ -67,7 +65,6 @@ export async function POST(req: Request) {
       name: `${first_name}${last_name ? ` ${last_name}` : ""}`,
       email: email_addresses[0].email_address,
       picture: image_url,
-      username: username!,
     });
     return NextResponse.json({ message: "Ok", user: mongoUser });
   }
