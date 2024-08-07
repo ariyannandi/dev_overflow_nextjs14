@@ -2,7 +2,12 @@
 
 import { connectToDB } from "../mongoose";
 import User from "@/models/user.model";
-import { CreateUserParams, DeleteUserParams, UpdateUserParams } from "./shared";
+import {
+  CreateUserParams,
+  DeleteUserParams,
+  GetAllUsersParams,
+  UpdateUserParams,
+} from "./shared";
 import { revalidatePath } from "next/cache";
 // eslint-disable-next-line no-unused-vars
 import Question from "@/models/question.model";
@@ -17,7 +22,7 @@ export async function getUserById(params: any) {
 
     return user;
   } catch (error) {
-    console.log(error);
+    console.error(error);
     throw error;
   }
 }
@@ -30,7 +35,7 @@ export async function createUser(userData: CreateUserParams) {
 
     return newUser;
   } catch (error) {
-    console.log(error);
+    console.error(error);
     throw error;
   }
 }
@@ -77,7 +82,31 @@ export async function deleteUser(params: DeleteUserParams) {
 
     // return deletedUser;
   } catch (error) {
-    console.log(error);
+    console.error(error);
     throw error;
   }
 }
+
+export async function getAllUsers(params: GetAllUsersParams) {
+  try {
+    connectToDB();
+
+    // const { page = 1, pageSize = 20, filter, searchQuery } = params;
+
+    const users = await User.find({}).sort({ createdAt: -1 });
+
+    return { users };
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+}
+
+// export async function getAllUsers(params: GetAllUsersParams) {
+//   try {
+//     connectToDB();
+//   } catch (error) {
+//     console.error(error);
+//     throw error;
+//   }
+// }
